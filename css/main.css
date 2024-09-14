@@ -2,6 +2,7 @@
   --mantle: #181825;
   --base: #1e1e2e;
   --surface-0: #313244;
+  --overlay-0: #6c7086;
   --text: #cdd6f4;
   --maroon: #eba0ac;
   --mauve: #cba6f7;
@@ -9,6 +10,8 @@
   --yellow: #f9e2af;
   --red: #f38ba8;
   --teal: #94e2d5;
+  --sky: #89dceb;
+  --latte-red: #d20f39;
 }
 * {
   box-sizing: border-box;
@@ -90,6 +93,11 @@ section {
           font-size: 18px;
           color: var(--base);
           cursor: pointer;
+          &[disabled] {
+            cursor: unset;
+            background-color: var(--surface-0);
+            color: var(--overlay-0);
+          }
         }
         .check-word {
           flex-grow: 3;
@@ -98,6 +106,28 @@ section {
         .hints {
           flex-grow: 1;
           background-color: var(--mauve);
+        }
+      }
+      .game-message {
+        margin: 20px 0;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .play-again {
+        text-align: center;
+        font-size: 30px;
+        i {
+          color: var(--sky);
+          display: none;
+          cursor: pointer;
+          width: fit-content;
+          height: fit-content;
+          margin: auto;
+          transition: transform 0.8s;
+          &:hover {
+            transform: rotate(360deg);
+          }
         }
       }
     }
