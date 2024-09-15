@@ -156,7 +156,7 @@ checkWordBtn.addEventListener("click", () => {
     }
   }
   if (correctWord) {
-    gameMessage.textContent = "You Did It, Congratulations!";
+    gameMessage.textContent = "You Did It, well done!";
     checkWordBtn.disabled = true;
     hintsBtn.disabled = true;
     playAgainBtn.style.display = "block";
@@ -180,7 +180,7 @@ checkWordBtn.addEventListener("click", () => {
       }
     }
   } else {
-    gameMessage.textContent = `You Lose, The Word Is: ${currentWord}`;
+    gameMessage.innerHTML = `Nice try, genius. The word was: <span style="color: var(--yellow)">${currentWord}</span>`;
     gameMessage.style.color = "var(--latte-red)";
     playAgainBtn.style.display = "block";
   }
