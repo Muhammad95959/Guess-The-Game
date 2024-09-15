@@ -55,31 +55,41 @@ section {
           &.disabled {
             opacity: 0.5;
           }
-        }
-        input {
-          width: 50px;
-          height: 50px;
-          background-color: var(--surface-0);
-          border: none;
-          border-bottom: 2px solid var(--text);
-          outline: none;
-          text-align: center;
-          font-size: 30px;
-        }
-        .in-place {
-          background-color: var(--green);
-          color: var(--base);
-          border: none;
-        }
-        .not-in-place {
-          background-color: var(--yellow);
-          color: var(--base);
-          border: none;
-        }
-        .wrong {
-          background-color: var(--red);
-          color: var(--base);
-          border: none;
+          input {
+            width: 50px;
+            height: 50px;
+            background-color: var(--surface-0);
+            border: none;
+            border-bottom: 2px solid var(--text);
+            outline: none;
+            text-align: center;
+            font-size: 30px;
+          }
+          @media (max-width: 768px) {
+            & {
+              font-size: 14px;
+            }
+            input {
+              width: 40px;
+              height: 40px;
+              font-size: 25px;
+            }
+          }
+          .in-place {
+            background-color: var(--green);
+            color: var(--base);
+            border: none;
+          }
+          .not-in-place {
+            background-color: var(--yellow);
+            color: var(--base);
+            border: none;
+          }
+          .wrong {
+            background-color: var(--red);
+            color: var(--base);
+            border: none;
+          }
         }
       }
       .buttons {
@@ -196,5 +206,10 @@ footer {
     font-weight: bold;
     margin-left: 0.3em;
     outline: none;
+  }
+  @media (max-width: 768px) {
+    & {
+      font-size: 14px;
+    }
   }
 }
