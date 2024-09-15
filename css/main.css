@@ -52,6 +52,7 @@ section {
           margin-bottom: 10px;
           font-weight: bold;
           font-size: 18px;
+          transition: opacity 0.8s;
           &.disabled {
             opacity: 0.5;
           }
@@ -75,20 +76,22 @@ section {
               font-size: 25px;
             }
           }
-          .in-place {
-            background-color: var(--green);
+          .in-place,
+          .not-in-place,
+          .wrong {
             color: var(--base);
             border: none;
+            transition-property: background-color color;
+            transition-duration: 0.8s;
+          }
+          .in-place {
+            background-color: var(--green);
           }
           .not-in-place {
             background-color: var(--yellow);
-            color: var(--base);
-            border: none;
           }
           .wrong {
             background-color: var(--red);
-            color: var(--base);
-            border: none;
           }
         }
       }
