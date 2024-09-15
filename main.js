@@ -6,27 +6,42 @@ let currentTry = 1;
 let hints = 2;
 let currentWord;
 const words = [
-  "pencil",
+  "animal",
   "banana",
-  "rocket",
-  "castle",
-  "flower",
-  "silver",
-  "rabbit",
-  "monkey",
-  "button",
-  "doctor",
-  "orange",
   "bottle",
-  "jacket",
-  "tunnel",
-  "circle",
   "bridge",
-  "tomato",
+  "button",
+  "castle",
+  "cheese",
+  "circle",
+  "doctor",
+  "family",
+  "flower",
   "forest",
-  "wizard",
+  "garden",
+  "island",
+  "jacket",
+  "jungle",
+  "letter",
+  "monkey",
+  "mother",
+  "orange",
+  "pencil",
   "planet",
+  "pocket",
+  "rabbit",
+  "rocket",
+  "silver",
+  "tomato",
+  "tunnel",
+  "wizard",
+  "yellow",
 ];
+
+// buttons variables
+const checkWordBtn = document.querySelector(".check-word");
+const hintsBtn = document.querySelector(".hints");
+const playAgainBtn = document.querySelector(".play-again i");
 
 // don't repeat words in the same session
 if (window.sessionStorage.getItem("words") === null)
@@ -90,6 +105,11 @@ for (let i = 1; i <= triesCount; i++) {
         while (document.querySelector(`.letter-${i}-${j + 1 + counter}`)?.disabled === true)
           counter++;
         document.querySelector(`.letter-${i}-${j + 1 + counter}`)?.focus();
+      } else if (e.key === "Enter") {
+        for (let k = 1; k <= wordsLength; k++) {
+          if (document.querySelector(`.letter-${i}-${k}`).value === "") return;
+        }
+        checkWordBtn.click();
       }
       // because the cursor is put to the left of the letter after clicking ArrowLeft
       if (e.key === "Backspace") input.value = "";
@@ -97,11 +117,6 @@ for (let i = 1; i <= triesCount; i++) {
   }
 }
 document.querySelector(".letter-1-1").focus();
-
-// buttons variables
-const checkWordBtn = document.querySelector(".check-word");
-const hintsBtn = document.querySelector(".hints");
-const playAgainBtn = document.querySelector(".play-again i");
 
 // checkWordBtn event listener
 checkWordBtn.addEventListener("click", () => {
