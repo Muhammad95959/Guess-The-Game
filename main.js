@@ -141,7 +141,6 @@ checkWordBtn.addEventListener("click", () => {
       remainingLetters[i - 1] = "#";
     }
   }
-  console.log(remainingLetters.join(""));
   for (let i = 1; i <= wordsLength; i++) {
     const input = document.querySelector(`.letter-${currentTry}-${i}`);
     let wrong = true;
