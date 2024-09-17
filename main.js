@@ -5,6 +5,7 @@ const wordsLength = 6;
 let currentTry = 1;
 let hints = 2;
 let currentWord;
+let remainingLetters;
 const words = [
   "animal",
   "banana",
@@ -53,6 +54,7 @@ window.onload = () => {
     words.splice(words.indexOf(w), 1);
   }
   currentWord = words[Math.floor(Math.random() * words.length)];
+  remainingLetters = currentWord.split("");
   usedWords.push(currentWord);
   if (usedWords.length === wordsCount) {
     window.sessionStorage.words = JSON.stringify([]);
@@ -136,10 +138,16 @@ checkWordBtn.addEventListener("click", () => {
     input.disabled = true;
     if (input.value === currentWord[i - 1].toUpperCase()) {
       input.classList.add("in-place");
-    } else {
-      let wrong = true;
+      remainingLetters[i - 1] = "#";
+    }
+  }
+  console.log(remainingLetters.join(""));
+  for (let i = 1; i <= wordsLength; i++) {
+    const input = document.querySelector(`.letter-${currentTry}-${i}`);
+    let wrong = true;
+    if (!input.classList.contains("in-place")) {
       for (let j = 0; j < wordsLength; j++) {
-        if (input.value === currentWord[j].toUpperCase()) {
+        if (input.value === remainingLetters[j].toUpperCase()) {
           input.classList.add("not-in-place");
           wrong = false;
         }
